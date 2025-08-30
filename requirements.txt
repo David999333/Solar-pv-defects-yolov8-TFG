@@ -1,8 +1,12 @@
-streamlit
-ultralytics
-opencv-python-headless
+streamlit>=1.32
+ultralytics==8.2.103
+torch==2.2.2
+torchvision==0.17.2
+opencv-python-headless==4.9.0.80
+numpy<2
 pillow
-numpy
 pandas
 matplotlib
 albumentations
+
+
