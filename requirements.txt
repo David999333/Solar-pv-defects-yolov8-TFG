@@ -2,11 +2,16 @@ streamlit>=1.32
 ultralytics==8.2.103
 torch==2.2.2
 torchvision==0.17.2
-opencv-python-headless==4.9.0.80
-numpy<2
-pillow
+
+# Combo estable para OpenCV
+numpy==1.26.4
+opencv-python-headless==4.8.1.78
+
+pillow==10.3.0
 pandas
 matplotlib
 albumentations
+
+
 
 
