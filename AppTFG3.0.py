@@ -4,6 +4,7 @@ from ultralytics import YOLO
 from PIL import Image
 import zipfile, io, os, glob
 import numpy as np
+from pathlib import Path
 
 # ------------------ CONFIG PÁGINA ------------------
 st.set_page_config(
@@ -16,7 +17,8 @@ LOGO_UPV_PATH = os.path.join("logos", "C:\David\TFG\Fotos TFG\logoUPV.png")
 LOGO_ETSII_PATH = os.path.join("logos", "C:\David\TFG\Fotos TFG\logoETSII.png")
 
 # Ruta del modelo YOLO entrenado (best.pt)
-WEIGHTS_PATH = r"C:\\David\\TFG\\Python\\Resultados10\\Resultados10\\solar_defectos2\\weights\\best.pt"
+APP_DIR = Path(__file__).resolve().parent
+WEIGHTS_PATH = APP_DIR/"weights"/"best.pt"
 
 # Ancho para mostrar imágenes
 DISPLAY_WIDTH = 700
@@ -153,4 +155,5 @@ else:
 
 # ------------------ FOOTER ------------------
 st.markdown("---")
+
 st.caption("© 2025 · TFG · UPV · ETSII — App de demostración con Streamlit y YOLOv8")
