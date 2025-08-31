@@ -58,7 +58,6 @@ except Exception as e:
 # ------------------ DESCRIPCIÓN + SLIDER DE CONFIANZA (en el cuerpo) ------------------
 st.write(
     "Sube imágenes JPG/PNG (una o varias) o un .zip con varias imágenes. "
-    "También puedes indicar una carpeta local con imágenes."
 )
 
 conf_threshold = st.slider(
@@ -75,10 +74,6 @@ uploaded_files = st.file_uploader(
     accept_multiple_files=True
 )
 
-folder_path = st.text_input(
-    "…o ingresa ruta de una carpeta local con imágenes (opcional)",
-    value=""
-)
 
 # ------------------ RECOLECCIÓN DE IMÁGENES ------------------
 images_to_process = []
@@ -110,25 +105,6 @@ if uploaded_files:
             except Exception as e:
                 st.error(f"❌ No se pudo abrir **{filename}**: {e}")
 
-# Cargar imágenes desde carpeta local
-if folder_path:
-    if os.path.isdir(folder_path):
-        patterns = ("*.png", "*.jpg", "*.jpeg")
-        files = []
-        for p in patterns:
-            files.extend(glob.glob(os.path.join(folder_path, p)))
-        if not files:
-            st.warning("⚠️ No se encontraron JPG/PNG en la carpeta indicada.")
-        else:
-            for fp in sorted(files):
-                try:
-                    img = Image.open(fp).convert("RGB")
-                    images_to_process.append(img)
-                    source_labels.append(os.path.basename(fp))
-                except Exception as e:
-                    st.error(f"❌ No se pudo leer la imagen {fp}: {e}")
-    else:
-        st.error("❌ La ruta de carpeta no existe o no es accesible.")
 
 # ------------------ INFERENCIA Y VISUALIZACIÓN ------------------
 if images_to_process:
@@ -142,8 +118,8 @@ if images_to_process:
         annotated = res.plot()
 
         # Invertir canales BGR->RGB:
-        # if isinstance(annotated, np.ndarray) and annotated.ndim == 3 and annotated.shape[2] == 3:
-        #     annotated = annotated[:, :, ::-1]
+         if isinstance(annotated, np.ndarray) and annotated.ndim == 3 and annotated.shape[2] == 3:
+             annotated = annotated[:, :, ::-1]
 
         detections = len(res.boxes) if hasattr(res, "boxes") else 0
         caption = f"Imagen: {source_labels[idx]} · Detecciones: {detections}"
@@ -157,3 +133,4 @@ else:
 st.markdown("---")
 
 st.caption("© 2025 · TFG · UPV · ETSII — App de demostración con Streamlit y YOLOv8")
+
