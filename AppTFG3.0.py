@@ -118,8 +118,8 @@ if images_to_process:
         annotated = res.plot()
 
         # Invertir canales BGR->RGB:
-         if isinstance(annotated, np.ndarray) and annotated.ndim == 3 and annotated.shape[2] == 3:
-             annotated = annotated[:, :, ::-1]
+         #if isinstance(annotated, np.ndarray) and annotated.ndim == 3 and annotated.shape[2] == 3:
+             #annotated = annotated[:, :, ::-1]
 
         detections = len(res.boxes) if hasattr(res, "boxes") else 0
         caption = f"Imagen: {source_labels[idx]} · Detecciones: {detections}"
@@ -133,4 +133,5 @@ else:
 st.markdown("---")
 
 st.caption("© 2025 · TFG · UPV · ETSII — App de demostración con Streamlit y YOLOv8")
+
 
