@@ -19,7 +19,7 @@ def process_label_file(txt_path):
     new_lines = []
     for ln in lines:
         parts = ln.split()
-        cls = int(float(parts[0]))  # soporta "0" o "0.0"
+        cls = int(float(parts[0]))
 
         if cls == 2:
             parts[0] = "1"          # dust (2) -> faulty (1)
@@ -54,4 +54,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
