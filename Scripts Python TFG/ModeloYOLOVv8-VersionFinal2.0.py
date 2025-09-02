@@ -49,7 +49,7 @@ def main():
             x1, y1, x2, y2 = box.xyxy[0]
             print(f"Defecto: {modelo_entrenado.names[clase]} | Confianza: {confianza:.2f} | Caja: [{x1:.0f}, {y1:.0f}, {x2:.0f}, {y2:.0f}]")
 
-# ESTA PARTE ES IMPRESCINDIBLE
 if __name__ == '__main__':
     freeze_support()
     main()
+
