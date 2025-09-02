@@ -56,10 +56,6 @@ except Exception as e:
     st.stop()
 
 # ------------------ DESCRIPCIÓN + SLIDER DE CONFIANZA ------------------
-st.write(
-    "Sube imágenes JPG/PNG (una o varias) o un .zip con varias imágenes. "
-)
-
 st.markdown("""
 **Clases que detecta el modelo:**
 
@@ -67,6 +63,10 @@ st.markdown("""
 - `dust`: suciedad/polvo sobre el panel
 - `no_faulty`: panel sin defectos
 """)
+
+st.write(
+    "Sube imágenes JPG/PNG (una o varias) o un .zip con varias imágenes. "
+)
 
 conf_threshold = st.slider(
     "Umbral de confianza",
@@ -141,6 +141,7 @@ else:
 st.markdown("---")
 
 st.caption("© 2025 · TFG · UPV · ETSII — App de demostración con Streamlit y YOLOv8")
+
 
 
 
