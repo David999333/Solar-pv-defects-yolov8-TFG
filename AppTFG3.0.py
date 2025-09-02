@@ -60,9 +60,13 @@ st.write(
     "Sube imágenes JPG/PNG (una o varias) o un .zip con varias imágenes. "
 )
 
-st.write(
-    "Tipos de clases que detecta el modelo: crack (panel fisurado), dust (panel sucio) y no faulty (panel en perfecto estado)."
-)
+st.markdown("""
+**Clases que detecta el modelo:**
+
+- `crack`: grieta/fisura en el panel
+- `dust`: suciedad/polvo sobre el panel
+- `no_faulty`: panel sin defectos
+""")
 
 conf_threshold = st.slider(
     "Umbral de confianza",
@@ -137,6 +141,7 @@ else:
 st.markdown("---")
 
 st.caption("© 2025 · TFG · UPV · ETSII — App de demostración con Streamlit y YOLOv8")
+
 
 
 
