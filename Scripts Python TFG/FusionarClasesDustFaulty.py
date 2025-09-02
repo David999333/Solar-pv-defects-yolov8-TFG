@@ -1,10 +1,10 @@
 from pathlib import Path
 import shutil
 
-# === CONFIGURA AQUÍ ===
-DATASET_DIR = Path("C:\David\TFG\Datasets\DATA4.3yolov8")  # carpeta que contiene train/, valid/, test/
+# === CONFIGURACIÓN ===
+DATASET_DIR = Path("C:\David\TFG\Datasets\DATA4.3yolov8")  # carpeta que contiene train, valid, test
 SPLITS = ["train", "valid", "test"]
-MAKE_BACKUPS = True  # crea una copia .bak de cada .txt antes de modificarlo
+MAKE_BACKUPS = True 
 
 def process_label_file(txt_path):
     text = txt_path.read_text(encoding="utf-8")
@@ -54,3 +54,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
