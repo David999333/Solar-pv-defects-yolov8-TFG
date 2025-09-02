@@ -55,7 +55,7 @@ except Exception as e:
     st.error(f"❌ Error al cargar el modelo YOLO. Verifica la ruta de pesos.\n\n{e}")
     st.stop()
 
-# ------------------ DESCRIPCIÓN + SLIDER DE CONFIANZA (en el cuerpo) ------------------
+# ------------------ DESCRIPCIÓN + SLIDER DE CONFIANZA ------------------
 st.write(
     "Sube imágenes JPG/PNG (una o varias) o un .zip con varias imágenes. "
 )
@@ -133,5 +133,6 @@ else:
 st.markdown("---")
 
 st.caption("© 2025 · TFG · UPV · ETSII — App de demostración con Streamlit y YOLOv8")
+
 
 
