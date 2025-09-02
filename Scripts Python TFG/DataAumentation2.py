@@ -6,7 +6,7 @@ from tqdm import tqdm
 import numpy as np
 
 # Configuración
-CLASES_OBJETIVO = {0: 2500, 3: 1500}  # clase: cantidad actual
+CLASES_OBJETIVO = {0: 2500, 3: 1500} 
 MAX_CLASE = 3500  # objetivo para todas
 AUMENTOS_POR_IMAGEN = 3
 
@@ -144,3 +144,4 @@ for cls_objetivo, lista_txt in imagenes_por_clase.items():
                 continue
 
     print(f"\n✅ [FINALIZADO] {generadas} imágenes aumentadas para clase {cls_objetivo}.\n")
+
