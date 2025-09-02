@@ -65,7 +65,7 @@ conf_threshold = st.slider(
     min_value=0.0, max_value=1.0, value=0.50, step=0.05,
     help="Confianza mínima para mostrar una detección."
 )
-st.caption("Sugerencia inicial de confianza: 0.30–0.40.")
+st.caption("Sugerencia inicial de confianza: 0.25–0.35.")
 
 # ------------------ ENTRADAS DE ARCHIVOS ------------------
 uploaded_files = st.file_uploader(
@@ -133,6 +133,7 @@ else:
 st.markdown("---")
 
 st.caption("© 2025 · TFG · UPV · ETSII — App de demostración con Streamlit y YOLOv8")
+
 
 
 
