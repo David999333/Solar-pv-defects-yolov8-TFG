@@ -1,8 +1,8 @@
 from pathlib import Path
 from collections import defaultdict
 
-# === CONFIGURA AQUÍ ===
-DATASET_DIR = Path("C:\David\TFG\Datasets\DATA4.2yolov8")  # carpeta que contiene train/ valid/ test/
+# === CONFIGURACIÓN ===
+DATASET_DIR = Path("C:\David\TFG\Datasets\DATA4.2yolov8")  # carpeta que contiene train, valid, test
 SPLITS = ["train", "valid", "test"]
 IMG_EXTS = {".jpg", ".jpeg", ".png", ".bmp"}
 # Mapea los IDs de clase (los que aparecen como primer término en cada línea del .txt)
@@ -14,7 +14,7 @@ ID2NAME = {
 }
 
 # === LÓGICA ===
-images_per_class = defaultdict(int)              # imágenes que contienen la clase (no instancias)
+images_per_class = defaultdict(int)              # imágenes que contienen la clase
 instances_per_class = defaultdict(int)           # total de instancias por clase
 images_total_per_split = defaultdict(int)        # nº de imágenes por split
 images_without_label_per_split = defaultdict(int)
@@ -34,14 +34,14 @@ for split in SPLITS:
             images_without_label_per_split[split] += 1
             continue
 
-        # Para "imágenes por clase", hay que sumar 1 por clase distinta presente en ESA imagen
+        # Para imágenes por clase, hay que sumar 1 por clase distinta presente en ESA imagen
         classes_in_image = set()
         with label_path.open("r", encoding="utf-8") as f:
             for line in f:
                 parts = line.strip().split()
                 if not parts:
                     continue
-                cls_id = int(float(parts[0]))  # por si viene como "0" o "0.0"
+                cls_id = int(float(parts[0])) 
                 classes_in_image.add(cls_id)
                 instances_per_class[cls_id] += 1
 
@@ -60,3 +60,4 @@ for cls_id, name in ID2NAME.items():
 print("\n=== Instancias por clase (suma de líneas en labels) ===")
 for cls_id, name in ID2NAME.items():
     print(f"{name}: {instances_per_class.get(cls_id, 0)}")
+
