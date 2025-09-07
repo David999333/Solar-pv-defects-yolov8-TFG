@@ -21,7 +21,7 @@ APP_DIR = Path(__file__).resolve().parent
 WEIGHTS_PATH = APP_DIR/"weights"/"best.pt"
 
 # Ancho para mostrar imágenes
-DISPLAY_WIDTH = 700
+DISPLAY_WIDTH = 600
 
 # ------------------ ENCABEZADO ------------------
 col_title, col_logos = st.columns([6, 2])
@@ -141,6 +141,7 @@ else:
 st.markdown("---")
 
 st.caption("© 2025 · TFG · UPV · ETSII — App de demostración con Streamlit y YOLOv8")
+
 
 
 
